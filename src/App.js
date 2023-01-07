@@ -1,11 +1,16 @@
 import React from 'react';
-import Photobooth from './components/Photobooth';
+import { Route, Routes, BrowserRouter } from 'react-router-dom';
+import HomePage from './pages/HomePage';
+import PhotoboothPage from './pages/PhotoboothPage';
 
 function App() {
   return (
-    <div>
-      <Photobooth />
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/photobooth" element={<PhotoboothPage />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
