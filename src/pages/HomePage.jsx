@@ -2,10 +2,13 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import bg from '../image/bg.mp4';
 import camera from '../image/camera.png';
-import PhotoboothPage from './PhotoboothPage';
-
+// import PhotoboothPage from './PhotoboothPage';
+import CaptureImage from '../components/photobooth/CaptureImage';
+import { useRecoilState } from 'recoil';
+import { modalState } from '../states/atom';
 const HomePage = () => {
-  const [modal, setModal] = useState(false);
+  const [isOpened, setIsOpened] = useRecoilState(modalState);
+
   return (
     <HomePageContainer>
       <Background loop autoPlay>
@@ -15,11 +18,11 @@ const HomePage = () => {
       <Camera
         src={camera}
         onClick={() => {
-          setModal(!modal);
+          setIsOpened(!isOpened);
         }}
       />
       <ModalContainer>
-        {modal === true ? <PhotoboothPage /> : null}
+        {isOpened === true ? <CaptureImage /> : null}
       </ModalContainer>
     </HomePageContainer>
   );

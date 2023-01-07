@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import CaptureImage from '../components/photobooth/CaptureImage';
 import { useDrag } from 'react-use-gesture';
-import styled from 'styled-components';
 // 라이브러리: react-use-gesture
 
 const PhotoboothPage = () => {

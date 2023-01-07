@@ -1,15 +1,16 @@
 import React from 'react';
 import { Route, Routes, BrowserRouter } from 'react-router-dom';
 import HomePage from './pages/HomePage';
-import PhotoboothPage from './pages/PhotoboothPage';
+import { RecoilRoot } from 'recoil';
 
 function App() {
   return (
     <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/photobooth" element={<PhotoboothPage />} />
-      </Routes>
+      <RecoilRoot>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+        </Routes>
+      </RecoilRoot>
     </BrowserRouter>
   );
 }

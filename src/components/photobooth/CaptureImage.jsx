@@ -6,6 +6,8 @@ import { BiReset } from 'react-icons/bi';
 import { GrFormClose } from 'react-icons/gr';
 import { BsDash } from 'react-icons/bs';
 import { CgArrowsExpandLeft } from 'react-icons/cg';
+import { useRecoilState } from 'recoil';
+import { modalState } from '../../states/atom';
 
 function CaptureImage() {
   const [img, setImg] = useState(null);
@@ -22,11 +24,13 @@ function CaptureImage() {
     setImg(imageSrc);
   }, [webcamRef]);
 
+  const [isOpened, setIsOpened] = useRecoilState(modalState);
+
   return (
     <PhotoboothContainer>
       <TitleBox>
         <BtnContainer>
-          <CloseBtn>
+          <CloseBtn onClick={() => { setIsOpened(false) }}>
             <GrFormClose />
           </CloseBtn>
           <SmallBtn>
@@ -107,6 +111,10 @@ const CloseBtn = styled.div`
   justify-content: center;
   align-items: center;
   margin-right: 7px;
+  &:hover {
+    cursor: pointer;
+    background-color: black;
+  }
 `;
 const SmallBtn = styled(CloseBtn)`
   background-color: #e1b83f;
@@ -127,7 +135,7 @@ const Camera = styled(Webcam)`
 const CamBtn = styled.button`
   position: absolute;
   top: 470px;
-  left: 400px;
+  left: 380px;
   width: 70px;
   height: 70px;
   font-size: 35px;
