@@ -119,7 +119,7 @@ const BigBtn = styled(CloseBtn)`
 
 const Camera = styled(Webcam)`
   position: absolute;
-  top: 0px;
+  top: -6px;
   width: 800px;
   height: 600px;
 `;
